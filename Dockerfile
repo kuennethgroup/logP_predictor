@@ -13,6 +13,11 @@ RUN apt-get update && apt-get install -y \
 
 COPY ./ ./
 
+RUN git clone https://github.com/autogluon/autogluon && \
+    cd autogluon && \
+    git checkout v1.1.1 && \
+    pip install -e core/[all] -e features/ -e tabular/[all] -e autogluon/
+ 
 RUN pip3 install -r requirements.txt
 
 EXPOSE 8501
