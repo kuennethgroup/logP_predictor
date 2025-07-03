@@ -1,7 +1,7 @@
 # requirements.txt
 streamlit>=1.36.0        
 pandas>=2.2.2           
-autogluon==1.1.1
+git+https://github.com/autogluon/autogluon.git@v1.1.1
 sentence-transformers>=2.7.0 
 psmiles @ git+https://github.com/Ramprasad-Group/psmiles.git      
 scikit-learn>=1.4.0  
