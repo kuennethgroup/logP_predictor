@@ -43,7 +43,7 @@ def load_predictor():
 def load_polybert():
     return SentenceTransformer('kuelumbus/polyBERT')
 
-predictor = load_predictor()
+predictor = load_predictor(require_version_match=False)
 polyBERT = load_polybert()
 
 # Load scalers from training
