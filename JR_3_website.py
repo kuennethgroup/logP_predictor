@@ -130,7 +130,7 @@ if main_mode == "Standard Mode (trained monomers)":
     )
 
     st.info("Monomer 1 and Monomer 2 (for all x) are fixed as in the training set.")
-    st.image("./copolymer.png", caption="The two monomers with n, m, x", use_column_width=True)
+    st.image("./copolymer.png", caption="The two monomers with n, m, x", use_container_width=True)
 
     if sub_mode == "Single Copolymer":
         st.subheader("Single Copolymer Prediction")
