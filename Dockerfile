@@ -1,6 +1,6 @@
 # app/Dockerfile
 
-FROM python:3.12-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -9,16 +9,21 @@ RUN apt-get update && apt-get install -y \
     curl \
     software-properties-common \
     git \
+    python3-pip \
     && rm -rf /var/lib/apt/lists/*
+
+# Create virtual environment
+RUN python3 -m venv /opt/venv
+
+# Set environment variables to activate venv
+ENV VIRTUAL_ENV=/opt/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 COPY ./ ./
 
-RUN git clone https://github.com/autogluon/autogluon && \
-    cd autogluon && \
-    git checkout v1.1.1 && \
-    pip install -e core/[all] -e features/ -e tabular/[all] -e autogluon/
+RUN pip install autogluon==1.1.1
  
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 8501
 
