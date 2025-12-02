@@ -23,7 +23,7 @@ COPY ./ ./
 
 RUN pip install autogluon==1.1.1
  
-RUN pip install -r requirements.txt --no-deps
+RUN pip install -r requirements.txt
 
 EXPOSE 8501
 
