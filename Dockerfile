@@ -1,5 +1,5 @@
 # # app/Dockerfile
-# FROM python:3.12-slim-trixie
+# FROM python:3.10-slim-trixie
 # COPY --from=ghcr.io/astral-sh/uv:0.9.9 /uv /uvx /bin/
 
 
@@ -14,7 +14,7 @@
 # First, build the application in the `/app` directory.
 
 
-FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
+FROM ghcr.io/astral-sh/uv:python3.10-bookworm-slim AS builder
 RUN apt-get update && apt-get install -y build-essential git curl && rm -rf /var/lib/apt/lists/*
 ENV UV_LINK_MODE=copy
 
@@ -37,7 +37,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 
 # Then, use a final image without uv
-FROM python:3.12-slim-bookworm
+FROM python:3.10-slim-bookworm
 RUN apt-get update && apt-get install -y build-essential git curl && rm -rf /var/lib/apt/lists/*
 # It is important to use the image that matches the builder, as the path to the
 # Python executable must be the same, e.g., using `python:3.11-slim-bookworm`

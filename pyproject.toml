@@ -3,8 +3,9 @@ name = "logp-predictor"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
+    "autogluon>=1.4.0",
     "pandas>=2.2.2",
     "psmiles",
     "scikit-learn>=1.4.0",
