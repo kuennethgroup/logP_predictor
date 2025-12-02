@@ -36,7 +36,7 @@ st.set_page_config(
 # **2. Cache Model Loading**
 @st.cache_resource
 def load_predictor():
-    return TabularPredictor.load('./all_predictions_0601')
+    return TabularPredictor.load('./all_predictions_0601', require_version_match=False)
 
 
 @st.cache_resource
