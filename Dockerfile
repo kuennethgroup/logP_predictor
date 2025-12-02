@@ -5,7 +5,7 @@ COPY --from=ghcr.io/astral-sh/uv:0.9.9 /uv /uvx /bin/
 
 WORKDIR /app
 COPY . /app
-RUN apt-get update && apt-get install -y build-essential git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y build-essential git curl && rm -rf /var/lib/apt/lists/*
 RUN uv sync --locked
 
 
